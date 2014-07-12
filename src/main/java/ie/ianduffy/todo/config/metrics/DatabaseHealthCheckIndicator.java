@@ -2,7 +2,6 @@ package ie.ianduffy.todo.config.metrics;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ConnectionCallback;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,9 +19,9 @@ import java.util.Map;
 public class DatabaseHealthCheckIndicator extends HealthCheckIndicator {
 
     public static final String DATABASE_HEALTH_INDICATOR = "database";
-	
+
     private final Logger log = LoggerFactory.getLogger(DatabaseHealthCheckIndicator.class);
-    
+
     private static final Map<String, String> queries = new HashMap<>();
 
     static {
@@ -42,7 +41,7 @@ public class DatabaseHealthCheckIndicator extends HealthCheckIndicator {
 
     public DatabaseHealthCheckIndicator() {
     }
-    
+
     public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }

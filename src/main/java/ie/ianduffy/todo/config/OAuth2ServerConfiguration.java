@@ -58,6 +58,7 @@ public class OAuth2ServerConfiguration {
                     .authorizeRequests()
                     .antMatchers("/views/**").permitAll()
                     .antMatchers("/app/rest/authenticate").permitAll()
+                    .antMatchers("/app/rest/register").permitAll()
                     .antMatchers("/app/rest/logs/**").hasAnyAuthority(AuthoritiesConstants.ADMIN)
                     .antMatchers("/app/**").authenticated()
                     .antMatchers("/websocket/tracker").hasAuthority(AuthoritiesConstants.ADMIN)
@@ -89,7 +90,7 @@ public class OAuth2ServerConfiguration {
         private static final String PROP_TOKEN_VALIDITY_SECONDS = "tokenValidityInSeconds";
 
         private RelaxedPropertyResolver propertyResolver;
-        
+
         @Inject
         private DataSource dataSource;
 

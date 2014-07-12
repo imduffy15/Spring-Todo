@@ -42,7 +42,7 @@ public class Application {
 
     /**
      * Main method, used to run the application.
-     *
+     * <p/>
      * To run the application with hot reload enabled, add the following arguments to your JVM:
      * "-javaagent:spring_loaded/springloaded-jhipster.jar -noverify -Dspringloaded=plugins=io.github.jhipster.loaded.instrument.JHipsterLoadtimeInstrumentationPlugin"
      */

@@ -20,7 +20,7 @@ import java.io.IOException;
 @Component
 public class AjaxLogoutSuccessHandler extends AbstractAuthenticationTargetUrlRequestHandler
         implements LogoutSuccessHandler {
-    
+
     public static final String BEARER_AUTHENTICATION = "Bearer ";
     @Inject
     private TokenStore tokenStore;
@@ -29,7 +29,7 @@ public class AjaxLogoutSuccessHandler extends AbstractAuthenticationTargetUrlReq
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response,
                                 Authentication authentication)
             throws IOException, ServletException {
-        
+
         // Request the token
         final String token = request.getHeader("authorization");
 

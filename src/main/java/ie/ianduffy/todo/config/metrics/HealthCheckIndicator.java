@@ -22,7 +22,7 @@ public abstract class HealthCheckIndicator implements HealthIndicator<Map<String
      * Perform a check of the application component.
      *
      * @return if the component is healthy, a healthy Result; otherwise, an unhealthy Result
-     *          with a descriptive error message or/and exception
+     * with a descriptive error message or/and exception
      * @throws Exception if there is an unhandled error during the health check; this will result in
      *                   a failed health check
      */
@@ -72,7 +72,7 @@ public abstract class HealthCheckIndicator implements HealthIndicator<Map<String
 
     /**
      * @param message an informative message describing how the health check indicator failed
-     * @param error an exception thrown during the health check
+     * @param error   an exception thrown during the health check
      * @return an unhealthy Result with the given error
      */
     public static Result unhealthy(String message, Throwable error) {

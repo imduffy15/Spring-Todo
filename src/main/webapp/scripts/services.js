@@ -8,13 +8,6 @@ todoApp.factory('Register', ['$resource',
         });
     }]);
 
-todoApp.factory('Activate', ['$resource',
-    function ($resource) {
-        return $resource('app/rest/activate', {}, {
-            'get': { method: 'GET', params: {}, isArray: false}
-        });
-    }]);
-
 todoApp.factory('Account', ['$resource',
     function ($resource) {
         return $resource('app/rest/account', {}, {

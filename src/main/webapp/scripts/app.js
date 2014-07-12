@@ -108,7 +108,7 @@ todoApp
 
             $translateProvider.useCookieStorage();
 
-            tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js')
+            tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
             tmhDynamicLocaleProvider.useCookieStorage('NG_TRANSLATE_LANG_KEY');
             
             httpHeaders = $httpProvider.defaults.headers;

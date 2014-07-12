@@ -26,7 +26,8 @@ public class LoggingAspect {
     private Environment env;
 
     @Pointcut("within(ie.ianduffy.todo.repository..*) || within(ie.ianduffy.todo.service..*) || within(ie.ianduffy.todo.web.rest..*)")
-    public void loggingPoincut() {}
+    public void loggingPoincut() {
+    }
 
     @AfterThrowing(pointcut = "loggingPoincut()", throwing = "e")
     public void logAfterThrowing(JoinPoint joinPoint, Throwable e) {
