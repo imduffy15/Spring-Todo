@@ -23,7 +23,7 @@ public class DatabaseHealthCheckIndicator extends HealthCheckIndicator {
 	
     private final Logger log = LoggerFactory.getLogger(DatabaseHealthCheckIndicator.class);
     
-    private static Map<String, String> queries = new HashMap<>();
+    private static final Map<String, String> queries = new HashMap<>();
 
     static {
         queries.put("HSQL Database Engine",
@@ -35,7 +35,7 @@ public class DatabaseHealthCheckIndicator extends HealthCheckIndicator {
         queries.put("Microsoft SQL Server", "SELECT 1");
     }
 
-    private static String DEFAULT_QUERY = "SELECT 'Hello'";
+    private static final String DEFAULT_QUERY = "SELECT 'Hello'";
 
     private JdbcTemplate jdbcTemplate;
     private String query = null;

@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class CustomLocalDateSerializer extends JsonSerializer<LocalDate> {
 
-    private static DateTimeFormatter formatter =
+    private static final DateTimeFormatter formatter =
             DateTimeFormat.forPattern("yyyy-MM-dd");
 
     @Override

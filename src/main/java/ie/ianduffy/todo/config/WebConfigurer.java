@@ -4,6 +4,7 @@ import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.servlet.InstrumentedFilter;
 import com.codahale.metrics.servlets.MetricsServlet;
 import ie.ianduffy.todo.web.filter.CachingHttpHeadersFilter;
+import ie.ianduffy.todo.web.filter.CrossOriginResourceSharingFilter;
 import ie.ianduffy.todo.web.filter.StaticResourcesProductionFilter;
 import ie.ianduffy.todo.web.filter.gzip.GZipServletFilter;
 import org.slf4j.Logger;
@@ -46,6 +47,7 @@ public class WebConfigurer implements ServletContextInitializer {
             initCachingHttpHeadersFilter(servletContext, disps);
         }
         initGzipFilter(servletContext, disps);
+        initCrossOriginResourceSharingFilter(servletContext, disps);
         if (env.acceptsProfiles(Constants.SPRING_PROFILE_DEVELOPMENT)) {
             initH2Console(servletContext);
         }
@@ -72,6 +74,22 @@ public class WebConfigurer implements ServletContextInitializer {
         compressingFilter.addMappingForUrlPatterns(disps, true, "/metrics/*");
 
         compressingFilter.setAsyncSupported(true);
+    }
+
+    /**
+     * Initializes the Cross origin resource sharing filter
+     */
+    private void initCrossOriginResourceSharingFilter(ServletContext servletContext, EnumSet<DispatcherType> disps) {
+        log.debug("Registering Cross Origin Resource Sharing Filter");
+
+        FilterRegistration.Dynamic crossOriginResourceSharingFilter = servletContext.addFilter("crossOriginResourceSharingFilter", new CrossOriginResourceSharingFilter());
+
+        Map<String, String> parameters = new HashMap<>();
+        crossOriginResourceSharingFilter.setInitParameters(parameters);
+
+        crossOriginResourceSharingFilter.addMappingForUrlPatterns(disps, true, "/*");
+
+        crossOriginResourceSharingFilter.setAsyncSupported(true);
     }
 
     /**
@@ -137,6 +155,7 @@ public class WebConfigurer implements ServletContextInitializer {
         metricsAdminServlet.setAsyncSupported(true);
         metricsAdminServlet.setLoadOnStartup(2);
     }
+
     /**
      * Initializes H2 console
      */

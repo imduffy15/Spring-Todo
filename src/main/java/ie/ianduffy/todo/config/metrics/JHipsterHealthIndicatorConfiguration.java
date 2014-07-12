@@ -16,7 +16,7 @@ public class JHipsterHealthIndicatorConfiguration implements InitializingBean {
     @Inject
     private DataSource dataSource;
 
-    private DatabaseHealthCheckIndicator databaseHealthCheckIndicator = new DatabaseHealthCheckIndicator();
+    private final DatabaseHealthCheckIndicator databaseHealthCheckIndicator = new DatabaseHealthCheckIndicator();
 
     @Bean
     public HealthIndicator<Map<String, HealthCheckIndicator.Result>> healthIndicator() {

@@ -64,7 +64,7 @@ public class CustomPersistentRememberMeServices extends
 
     private static final int DEFAULT_TOKEN_LENGTH = 16;
 
-    private SecureRandom random;
+    private final SecureRandom random;
 
     @Inject
     private PersistentTokenRepository persistentTokenRepository;

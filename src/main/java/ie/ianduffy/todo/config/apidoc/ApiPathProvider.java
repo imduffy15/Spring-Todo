@@ -12,7 +12,7 @@ public class ApiPathProvider implements SwaggerPathProvider {
     @Inject
     private ServletContext servletContext;
 
-    private String docsLocation;
+    private final String docsLocation;
 
     public ApiPathProvider(String docsLocation) {
         this.docsLocation = docsLocation;

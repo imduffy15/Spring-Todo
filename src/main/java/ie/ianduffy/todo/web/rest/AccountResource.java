@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.thymeleaf.spring4.SpringTemplateEngine;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
@@ -42,9 +41,6 @@ public class AccountResource {
 
     @Autowired
     private ApplicationContext applicationContext;
-
-    @Inject
-    private SpringTemplateEngine templateEngine;
 
     @Inject
     private UserRepository userRepository;
@@ -97,22 +93,23 @@ public class AccountResource {
     public ResponseEntity<UserDTO> getAccount() {
         User user = userService.getUserWithAuthorities();
         if (user == null) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         List<String> roles = new ArrayList<>();
         for (Authority authority : user.getAuthorities()) {
             roles.add(authority.getName());
         }
         return new ResponseEntity<>(
-            new UserDTO(
-                user.getLogin(),
-                user.getPassword(),
-                user.getFirstName(),
-                user.getLastName(),
-                user.getEmail(),
-                user.getLangKey(),
-                roles),
-            HttpStatus.OK);
+                new UserDTO(
+                        user.getLogin(),
+                        user.getPassword(),
+                        user.getFirstName(),
+                        user.getLastName(),
+                        user.getEmail(),
+                        user.getLangKey(),
+                        roles),
+                HttpStatus.OK
+        );
     }
 
     /**
