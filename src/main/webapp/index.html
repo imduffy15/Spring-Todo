@@ -39,6 +39,12 @@
                                 <span translate="global.menu.home">Home</span>
                             </a>
                         </li>
+                        <li ng-switch-when="true">
+                            <a href="#/todo">
+                                <span class="glyphicon glyphicon-check"></span>
+                                <span translate="global.menu.todos">Todos</span>
+                            </a>
+                        </li>
                         <li class="dropdown pointer">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
                                 <span>
@@ -121,6 +127,9 @@
         <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
         <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
         <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
+        <script src="scripts/todo/router_todo.js"></script>
+        <script src="scripts/todo/controller_todo.js"></script>
+        <script src="scripts/todo/service_todo.js"></script>
         <!-- endbuild -->
 </body>
 </html>

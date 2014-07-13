@@ -11,7 +11,7 @@ import java.util.Collection;
 /**
  * Utility class for Spring Security.
  */
-public final class SecurityUtils {
+public class SecurityUtils {
 
     private SecurityUtils() {
     }
